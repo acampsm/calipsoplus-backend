@@ -27,7 +27,8 @@ EXPERIMENTS_OUTPUT = "/tmp/results"
 DYNAMIC_EXPERIMENTS_DATA_RETRIEVAL = 0
 DYNAMIC_EXPERIMENTS_DATA_RETRIEVAL_ENDPOINT = "http://mock-login:8000/experiments/$USERNAME/"
 
-ENABLE_ICAT_DATA_RETRIEVAL = 0
+ENABLE_ICAT_DATA_RETRIEVAL = False
+ICAT_OPENID_CONNECT = False
 ICAT_DATA_RETRIEVAL_ENDPOINT = "https://icat.example.fr"
 ICAT_PLUGIN = ""
 ICAT_USERNAME = "username"
@@ -45,3 +46,14 @@ ENABLE_NON_ROOT_GID_CONTAINER = False
 ADD_HOME_DIR_TO_ALL_CONTAINERS = False
 
 API_URL_FOR_UID_AND_GID = 'http://example.fr/user/details'
+
+# Mount arbitrary directories into container
+# Form: "source:target:ro|rw"
+OTHER_DIRS_TO_MOUNT = [
+    "/opt/matlab/2018b:/usr/local/matlab:ro",
+    "/opt/tools:/opt/tools:ro",
+]
+
+# kubernetes (pods) location
+REMOTE_PODS_MACHINE_IP = "kube.machine"
+DEFAULT_KUBE_NAMESPACE = "default"
